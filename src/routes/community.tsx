@@ -6,9 +6,9 @@ import { btnWa, card, tag } from "@/components/Shell";
 export const Route = createFileRoute("/community")({
   head: () => ({
     meta: [
-      { title: "WhatsApp groups & channels — SheConnect" },
-      { name: "description", content: "Join SheConnect WhatsApp groups and channels for opportunities, learning and peer support." },
-      { property: "og:title", content: "SheConnect WhatsApp groups & channels" },
+      { title: "WhatsApp community — SheConnect" },
+      { name: "description", content: "Join the SheConnect WhatsApp community for opportunities, free learning and peer support." },
+      { property: "og:title", content: "SheConnect WhatsApp community" },
       { property: "og:description", content: "Join our WhatsApp community for women and girls in tech." },
     ],
   }),
@@ -28,29 +28,40 @@ function WaCard({ w }: { w: WaLink }) {
         </div>
       </div>
       <a href={w.url} target="_blank" rel="noopener noreferrer" className={btnWa}>
-        {w.kind === "channel" ? "Follow channel" : "Join group"} <ExternalLink className="h-4 w-4" />
+        {w.kind === "channel" ? "Follow channel" : w.kind === "community" ? "Join community" : "Join group"} <ExternalLink className="h-4 w-4" />
       </a>
     </div>
   );
 }
 
 function Community() {
+  const communities = whatsappLinks.filter((w) => w.kind === "community");
   const channels = whatsappLinks.filter((w) => w.kind === "channel");
   const groups = whatsappLinks.filter((w) => w.kind === "group");
   return (
     <div className="space-y-8">
       <header>
         <h1 className="text-3xl font-extrabold text-primary">Our WhatsApp community</h1>
-        <p className="mt-2 text-muted-foreground">Tap to open WhatsApp. Channels share news; groups let you chat.</p>
+        <p className="mt-2 text-muted-foreground">Tap to open WhatsApp and join. It's free.</p>
       </header>
-      <section>
-        <h2 className="mb-3 flex items-center gap-2 text-xl font-bold">Channels <span className={tag}>Updates only</span></h2>
-        <div className="grid gap-4 md:grid-cols-2">{channels.map((w) => <WaCard key={w.id} w={w} />)}</div>
-      </section>
-      <section>
-        <h2 className="mb-3 flex items-center gap-2 text-xl font-bold">Groups <span className={tag}>Chat & ask</span></h2>
-        <div className="grid gap-4 md:grid-cols-2">{groups.map((w) => <WaCard key={w.id} w={w} />)}</div>
-      </section>
+      {communities.length > 0 && (
+        <section>
+          <h2 className="mb-3 flex items-center gap-2 text-xl font-bold">Communities <span className={tag}>Start here</span></h2>
+          <div className="grid gap-4 md:grid-cols-2">{communities.map((w) => <WaCard key={w.id} w={w} />)}</div>
+        </section>
+      )}
+      {channels.length > 0 && (
+        <section>
+          <h2 className="mb-3 flex items-center gap-2 text-xl font-bold">Channels <span className={tag}>Updates only</span></h2>
+          <div className="grid gap-4 md:grid-cols-2">{channels.map((w) => <WaCard key={w.id} w={w} />)}</div>
+        </section>
+      )}
+      {groups.length > 0 && (
+        <section>
+          <h2 className="mb-3 flex items-center gap-2 text-xl font-bold">Groups <span className={tag}>Chat & ask</span></h2>
+          <div className="grid gap-4 md:grid-cols-2">{groups.map((w) => <WaCard key={w.id} w={w} />)}</div>
+        </section>
+      )}
       <section className={`${card} bg-secondary`}>
         <h2 className="font-bold">Community rules</h2>
         <ul className="mt-2 list-disc space-y-1 pl-5">

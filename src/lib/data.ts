@@ -1,13 +1,10 @@
 // Edit these links to point to your real WhatsApp groups and channels.
-export type WaLink = { id: string; name: string; desc: string; url: string; kind: "group" | "channel"; members?: string };
+export type WaLink = { id: string; name: string; desc: string; url: string; kind: "group" | "channel" | "community"; members?: string };
 
+// Real WhatsApp community invite links supplied by the owner.
 export const whatsappLinks: WaLink[] = [
-  { id: "c1", kind: "channel", name: "SheConnect Opportunities", desc: "Daily bursaries, learnerships and jobs.", url: "https://whatsapp.com/channel/REPLACE_OPPORTUNITIES", members: "Channel" },
-  { id: "c2", kind: "channel", name: "Free Tech Learning", desc: "Free courses and low-data learning tips.", url: "https://whatsapp.com/channel/REPLACE_LEARNING", members: "Channel" },
-  { id: "g1", kind: "group", name: "First-year ICT students", desc: "Ask questions, share notes, study together.", url: "https://chat.whatsapp.com/REPLACE_ICT" },
-  { id: "g2", kind: "group", name: "Women in cybersecurity", desc: "Talk security careers and certifications.", url: "https://chat.whatsapp.com/REPLACE_CYBER" },
-  { id: "g3", kind: "group", name: "Grade 10–12 girls in tech", desc: "Subject choices, university applications, NSFAS.", url: "https://chat.whatsapp.com/REPLACE_SCHOOL" },
-  { id: "g4", kind: "group", name: "Job seekers & graduates", desc: "CV help, interview prep and job leads.", url: "https://chat.whatsapp.com/REPLACE_JOBS" },
+  { id: "c1", kind: "community", name: "SheConnect Community", desc: "Opportunities, free learning and peer support in one place.", url: "https://chat.whatsapp.com/Bj0HwwpC58t3yKOwnPANqU" },
+  { id: "c2", kind: "community", name: "Chats Koena Community", desc: "Chats, advice and job leads from the community.", url: "https://chat.whatsapp.com/JhZL644xBfv7jPCIN5xksC" },
 ];
 
 export type Path = { id: string; title: string; career: string; hours: number; steps: { title: string; url: string; source: string }[] };
