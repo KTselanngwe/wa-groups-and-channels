@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CommunityRouteImport } from './routes/community'
+import { Route as GuideRouteImport } from './routes/guide'
+import { Route as JobsRouteImport } from './routes/jobs'
+import { Route as MentorsRouteImport } from './routes/mentors'
+import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as SafetyRouteImport } from './routes/safety'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as LearnIndexRouteImport } from './routes/learn.index'
+import { Route as LearnIdRouteImport } from './routes/learn.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuideRoute = GuideRouteImport.update({
+  id: '/guide',
+  path: '/guide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JobsRoute = JobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorsRoute = MentorsRouteImport.update({
+  id: '/mentors',
+  path: '/mentors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SafetyRoute = SafetyRouteImport.update({
+  id: '/safety',
+  path: '/safety',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnIndexRoute = LearnIndexRouteImport.update({
+  id: '/learn/',
+  path: '/learn/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnIdRoute = LearnIdRouteImport.update({
+  id: '/learn/$id',
+  path: '/learn/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/community': typeof CommunityRoute
+  '/guide': typeof GuideRoute
+  '/jobs': typeof JobsRoute
+  '/mentors': typeof MentorsRoute
+  '/profile': typeof ProfileRoute
+  '/safety': typeof SafetyRoute
+  '/signup': typeof SignupRoute
+  '/learn/$id': typeof LearnIdRoute
+  '/learn/': typeof LearnIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/community': typeof CommunityRoute
+  '/guide': typeof GuideRoute
+  '/jobs': typeof JobsRoute
+  '/mentors': typeof MentorsRoute
+  '/profile': typeof ProfileRoute
+  '/safety': typeof SafetyRoute
+  '/signup': typeof SignupRoute
+  '/learn/$id': typeof LearnIdRoute
+  '/learn': typeof LearnIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/community': typeof CommunityRoute
+  '/guide': typeof GuideRoute
+  '/jobs': typeof JobsRoute
+  '/mentors': typeof MentorsRoute
+  '/profile': typeof ProfileRoute
+  '/safety': typeof SafetyRoute
+  '/signup': typeof SignupRoute
+  '/learn/$id': typeof LearnIdRoute
+  '/learn/': typeof LearnIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/community'
+    | '/guide'
+    | '/jobs'
+    | '/mentors'
+    | '/profile'
+    | '/safety'
+    | '/signup'
+    | '/learn/$id'
+    | '/learn/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/community'
+    | '/guide'
+    | '/jobs'
+    | '/mentors'
+    | '/profile'
+    | '/safety'
+    | '/signup'
+    | '/learn/$id'
+    | '/learn'
+  id:
+    | '__root__'
+    | '/'
+    | '/community'
+    | '/guide'
+    | '/jobs'
+    | '/mentors'
+    | '/profile'
+    | '/safety'
+    | '/signup'
+    | '/learn/$id'
+    | '/learn/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CommunityRoute: typeof CommunityRoute
+  GuideRoute: typeof GuideRoute
+  JobsRoute: typeof JobsRoute
+  MentorsRoute: typeof MentorsRoute
+  ProfileRoute: typeof ProfileRoute
+  SafetyRoute: typeof SafetyRoute
+  SignupRoute: typeof SignupRoute
+  LearnIdRoute: typeof LearnIdRoute
+  LearnIndexRoute: typeof LearnIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guide': {
+      id: '/guide'
+      path: '/guide'
+      fullPath: '/guide'
+      preLoaderRoute: typeof GuideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jobs': {
+      id: '/jobs'
+      path: '/jobs'
+      fullPath: '/jobs'
+      preLoaderRoute: typeof JobsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentors': {
+      id: '/mentors'
+      path: '/mentors'
+      fullPath: '/mentors'
+      preLoaderRoute: typeof MentorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safety': {
+      id: '/safety'
+      path: '/safety'
+      fullPath: '/safety'
+      preLoaderRoute: typeof SafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/': {
+      id: '/learn/'
+      path: '/learn'
+      fullPath: '/learn/'
+      preLoaderRoute: typeof LearnIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/$id': {
+      id: '/learn/$id'
+      path: '/learn/$id'
+      fullPath: '/learn/$id'
+      preLoaderRoute: typeof LearnIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CommunityRoute: CommunityRoute,
+  GuideRoute: GuideRoute,
+  JobsRoute: JobsRoute,
+  MentorsRoute: MentorsRoute,
+  ProfileRoute: ProfileRoute,
+  SafetyRoute: SafetyRoute,
+  SignupRoute: SignupRoute,
+  LearnIdRoute: LearnIdRoute,
+  LearnIndexRoute: LearnIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
