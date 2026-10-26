@@ -8,9 +8,9 @@ const initial: State = { lang: "en", dataSaver: false, name: "", saved: [], done
 
 const dict: Record<string, [string, string]> = {
   home: ["Home", "Gae"], guide: ["Guide", "Tlhahlo"], learn: ["Learn", "Ithute"], mentors: ["Mentors", "Bahlahli"],
-  community: ["Groups", "Dihlopha"], jobs: ["Jobs", "Mešomo"], headline: ["Your future in tech starts here", "Bokamoso bja gago go theknolotši bo thoma mo"],
+  community: ["Community", "Kopano"], jobs: ["Jobs", "Mešomo"], headline: ["Your future in tech starts here", "Bokamoso bja gago go theknolotši bo thoma mo"],
   chat: ["Chat with the career guide", "Bolela le mohlahli wa mošomo"], browse: ["Browse learning paths", "Lebelela ditsela tša go ithuta"],
-  join: ["Join our WhatsApp groups", "Tsenela dihlopha tša WhatsApp"], dataSaver: ["Data saver", "Boloka data"],
+  join: ["Join our WhatsApp community", "Tsenela kopano ya WhatsApp"], dataSaver: ["Data saver", "Boloka data"],
 };
 
 const Ctx = createContext<{ s: State; set: (p: Partial<State>) => void; t: (k: string) => string } | null>(null);
