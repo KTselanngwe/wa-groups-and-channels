@@ -6,9 +6,9 @@ import { btnWa, card, tag } from "@/components/Shell";
 export const Route = createFileRoute("/community")({
   head: () => ({
     meta: [
-      { title: "WhatsApp groups & channels — SheConnect" },
-      { name: "description", content: "Join SheConnect WhatsApp groups and channels for opportunities, learning and peer support." },
-      { property: "og:title", content: "SheConnect WhatsApp groups & channels" },
+      { title: "WhatsApp community — SheConnect" },
+      { name: "description", content: "Join the SheConnect WhatsApp community for opportunities, free learning and peer support." },
+      { property: "og:title", content: "SheConnect WhatsApp community" },
       { property: "og:description", content: "Join our WhatsApp community for women and girls in tech." },
     ],
   }),
