@@ -36,7 +36,7 @@ function Guide() {
     if (key === "any") paths.forEach((p) => (s[p.id] = (s[p.id] ?? 0) + 0.5)); else s[key] = (s[key] ?? 0) + 1;
     setScore(s);
     const next = step + 1;
-    setLog((l) => [...l, { me: true, text: label }, ...(next < questions.length ? [{ text: questions[next].q }] : [{ text: "Great! Here are careers that could suit you:" }])]);
+    setLog((l) => [...l, { me: true, text: label }, ...(next < questions.length ? [{ text: questions[next]!.q }] : [{ text: "Great! Here are careers that could suit you:" }])]);
     setStep(next);
   };
   const results = [...paths].sort((a, b) => (score[b.id] ?? 0) - (score[a.id] ?? 0)).slice(0, 3);
@@ -55,7 +55,7 @@ function Guide() {
       </div>
       {!done && (
         <div className="flex flex-wrap gap-2">
-          {questions[step].opts.map(([label, key]) => (
+          {questions[step]!.opts.map(([label, key]) => (
             <button key={label} onClick={() => answer(label, key)} className="rounded-full border-2 border-accent px-4 py-2 font-semibold text-accent hover:bg-accent hover:text-accent-foreground">{label}</button>
           ))}
         </div>
